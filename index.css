@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+body {
+  background-color: #141414;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.3em;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0));
+}
+nav .left {
+  display: flex;
+}
+nav .left .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  padding: 0.5em;
+  width: 8rem;
+}
+nav .left .logo a {
+  width: 100%;
+}
+nav .left .logo a img {
+  max-width: 100%;
+}
+nav .left .menu-list {
+  display: flex;
+}
+nav .left .menu-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding: 0.2em 1em 0.5em 1em;
+}
+nav .left .menu-list li a {
+  font-size: 0.8rem;
+}
+nav .right {
+  display: flex;
+  margin-right: 2em;
+}
+nav .right .icon {
+  padding: 0.5em 1em 0.5em 1em;
+}
+nav .right .profile {
+  padding: 0;
+}
+nav .right .profile a {
+  display: flex;
+  align-items: center;
+}
+nav .right .profile a .avatar-box {
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+nav .right .profile i {
+  transition: all 300ms;
+}
+nav .right .profile:hover i {
+  transform: rotate(180deg);
+}
+nav .right .search {
+  border: 1px solid white;
+  background-color: black;
+}
+nav .right .search .search-bar {
+  display: flex;
+}
+nav .right .search .search-bar i {
+  margin-right: 0.5em;
+}
+nav .right .search .search-bar input {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  outline: none;
+}
+
+/*# sourceMappingURL=index.css.map */
