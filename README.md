@@ -156,7 +156,7 @@ getBoundingClientRect() : offsetWidth와 동일한 값을 반환하지만, 차�
 - flex로 space-between 속성줘서 구성했다.
 - media query속성으로 어색한 분기점마다 조금씩 수정해주고, 모바일에서는 메뉴버튼들을 absolute로 바꾸고, 메뉴라는 모바일 전용 버튼을 만들고 hover하면 보이도록했다.(만들다보니 내가 왜 hover로했나 싶다.. 모바일은 클릭해야하는데...그냥 냅둔다...)
 
-#### 하단 footer
+## 하단 footer
 
 ![](./demo/footer.png)
 
