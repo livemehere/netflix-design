@@ -162,3 +162,8 @@ getBoundingClientRect() : offsetWidth와 동일한 값을 반환하지만, 차�
 
 - 난 grid를 은근 좋아하고, 그리드가 딱맞는 곧이면 바로써버리고싶은 충동이 있다. 대부분 flex로 해결되지만, grid가 딱맞을거같은 레이아웃들이 있다. 인스타그램이라던지..
 - 넷플릭스가 사진과 같이 구현해놨길래 크게는 flex로 한번감싸고, flex-direction을 column으로 준뒤, 하단 벜튼들은 그냥 grid로 해결했다.
+
+## 썸네일들
+
+https://yts.mx/ 오픈API를 사용하였고
+비디오는 유튜브영상 하나 다운했다...
