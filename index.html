@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kong flix</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="index.css">
 </head>
@@ -15,6 +16,7 @@
             <div class="logo">
                 <a href="#"><img src="./img/logo.png" alt=""></a>
             </div>
+            <div class="mobile-menu">메뉴</div>
             <ul class="menu-list">
                 <li>
                     <a href="#">홈</a>
@@ -54,6 +56,108 @@
             </div>
         </div>
     </nav>
+    <main>
+        <div class="video">
+            <video src="./video/doctor.mp4" autoplay loop muted></video>
+        </div>
+        <div class="description">
+            <h1>Doctor Strange 2</h1>
+            <h3>매주 새로운 트레일러 공개</h3>
+            <p>
+                5월, 차원의 경계가 무너지고 닥터 스트레인지가 온다
+                전 세계를 뒤흔들 역대급 멀티버스 전쟁의 시작!
+                [닥터 스트레인지: 대혼돈의 멀티버스] 티저 예고편 공개!
+            </p>
+            <div class="buttons">
+                <button class="play"><i class="fa-solid fa-play"></i><span>재생</span></button>
+                <button class="detail"><i class="fa-solid fa-circle-info"></i>상세 정보</button>
+            </div>
+        </div>
+        <div class="age-info">
+            <i class="fa-solid fa-rotate-right"></i>
+            <div class="age">15+</div>
+        </div>
+    </main>
+    <section>
+        <div class="content-list">
+            <h1>한국이 만든 콘텐츠</h1>
+            <div class="slider">
+            </div>
+            <div class="prev"><i class="fa-solid fa-angle-right prev-arrow"></i></div>
+            <div class="next"><i class="fa-solid fa-angle-right"></i></div>
+        </div>
+        <div class="content-list">
+            <h1>지금 뜨는 콘텐츠</h1>
+            <div class="slider">
+            </div>
+            <div class="prev"><i class="fa-solid fa-angle-right prev-arrow"></i></div>
+            <div class="next"><i class="fa-solid fa-angle-right"></i></div>
+        </div>
+        <div class="content-list">
+            <h1>오늘 한국의 TOP 10 콘텐츠</h1>
+            <div class="slider">
+            </div>
+            <div class="prev"><i class="fa-solid fa-angle-right prev-arrow"></i></div>
+            <div class="next"><i class="fa-solid fa-angle-right"></i></div>
+        </div>
+    </section>
+    <footer>
+        <div class="wrap">
+            <div class="social-icons">
+                <i class="fa-brands fa-facebook-square"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+            <div class="options">
+                <div class="option">자막 및 음성</div>
+                <div class="option">음성 지원</div>
+                <div class="option">고객 센터</div>
+                <div class="option">기프트카드</div>
+                <div class="option">미디어 센터</div>
+                <div class="option">투자 정보(IR)</div>
+                <div class="option">입사 정보</div>
+                <div class="option">이용 약관</div>
+                <div class="option">개인 정보</div>
+                <div class="option">법적 고지</div>
+                <div class="option">쿠키 설정</div>
+                <div class="option">회사 정보</div>
+                <div class="option">문의하기</div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const next = document.querySelectorAll('.next');
+        const prev = document.querySelectorAll('.prev');
+        const slider = document.querySelectorAll('.slider')
 
+        for(let i =0;i<slider.length;i++){
+            getMovies(slider[i],i+1);
+            makeSlider(slider[i],prev[i],next[i]);
+        }
+        function makeSlider(element,prev,next){
+            next.addEventListener('click',()=>{
+                const offsetX = element.offsetWidth;
+                element.scrollBy(offsetX,0)
+            })
+            prev.addEventListener('click',()=>{
+                const offsetX = element.offsetWidth;
+                element.scrollBy(-offsetX,0)
+            })
+        }
+        function getMovies(element,page){
+            fetch(`https://yts.mx/api/v2/list_movies.json?limit=20&sort_by=rating&page=${page}`)
+                .then(data=>data.json())
+                .then(data=>{
+                    const movies = data.data.movies;
+                    movies.forEach(movie=>{
+                        const div = document.createElement('div');
+                        div.className='item';
+                        div.innerHTML = `<img src="${movie.medium_cover_image}" alt="">`;
+                        element.appendChild(div);
+                    })
+                })
+        }
+    </script>
 </body>
 </html>
